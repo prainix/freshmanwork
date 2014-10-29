@@ -68,6 +68,6 @@ class HackbasePipeline(object):
 
 #UPDATE COMPANY set SALARY = 25000.00 where ID=1
 
-#    def close_spider(spider):
-#    	global connection
-#    	connection.close()
+    def close_spider(spider):
+    	global connection
+    	connection.close()

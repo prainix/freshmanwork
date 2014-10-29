@@ -13,7 +13,7 @@ BOT_NAME = 'hackbase'
 SPIDER_MODULES = ['hackbase.spiders']
 NEWSPIDER_MODULE = 'hackbase.spiders'
 
-ITEM_PIPELINES = ['hackbase.pipelines.HackbasePipeline']
+#ITEM_PIPELINES = ['hackbase.pipelines.HackbasePipeline']
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'hackbase (+http://www.yourdomain.com)'
