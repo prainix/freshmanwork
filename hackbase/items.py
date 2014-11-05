@@ -46,7 +46,6 @@ class HackbaseItem(scrapy.Item):
     post_content = scrapy.Field()
     auth_id = scrapy.Field()
     auth_name = scrapy.Field()
-    auth_id = scrapy.Field()
     auth_url = scrapy.Field()
     auth_join_date = scrapy.Field()
     auth_post_num = scrapy.Field()
@@ -55,5 +54,5 @@ class HackbaseItem(scrapy.Item):
     auth_level = scrapy.Field()
     auth_value = scrapy.Field()
     auth_money = scrapy.Field()
-    auth_reputatio = scrapy.Field()
+    auth_reputation = scrapy.Field()
 
