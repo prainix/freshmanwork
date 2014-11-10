@@ -15,7 +15,7 @@ class HackbaseSpider(CrawlSpider):
     name = "hackbase"
     allowed_domains = ["bbs.hackbase.com"]
     start_urls = [
-        "http://bbs.hackbase.com/forum.php?mod=forumdisplay&fid=130",
+        "http://bbs.hackbase.com/forum.php?mod=forumdisplay&fid=1",
     ]
 
     rules = (
@@ -69,8 +69,6 @@ class HackbaseSpider(CrawlSpider):
             auth_join_date = ['']
         item['auth_join_date'] = auth_join_date
         authors[item['auth_id'][0]] = (item['auth_money'], item['auth_reputation'], item['auth_join_date'])
-        print '~~~~~~~~~~~~~~~~~~~~~~'
-        print authors
         yield item
 
     def parse_hackbase(self, response):
@@ -88,7 +86,11 @@ class HackbaseSpider(CrawlSpider):
 
             if post_floor :
                 if post_floor[0] == '1' :
-                    item['post_title'] = sel1.xpath('//span[@id="thread_subject"]/text()').extract()
+                    post_title = sel1.xpath('//span[@id="thread_subject"]/text()').extract()
+                    if post_title:
+                    	item['post_title'] = post_title
+                    else:
+                    	item['post_title'] = ['']
                     view_and_reply = sel1.xpath('//span[@class="xi1"]/text()').re('\d+')
                     item['post_view'] = [view_and_reply[0]]
                     item['post_reply'] = [view_and_reply[1]]
